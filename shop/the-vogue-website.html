@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vogue - Premium Nigerian Fashion Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --deep-green: #1a3c34;
+            --cream: #F5F1E8;
+            --charcoal: #2C2C2C;
+            --terracotta: #C9663D;
+            --olive: #6B7755;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(245, 241, 232, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--deep-green);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 90px;
+            height: 90vh;
+            background: linear-gradient(135deg, var(--deep-green) 0%, var(--olive) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(212, 175, 55, 0.03) 10px,
+                    rgba(212, 175, 55, 0.03) 20px
+                );
+            animation: patternMove 20s linear infinite;
+        }
+
+        @keyframes patternMove {
+            from {
+                transform: translateX(0) translateY(0);
+            }
+            to {
+                transform: translateX(50px) translateY(50px);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--cream);
+            z-index: 1;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content .tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--gold);
+            color: var(--deep-green);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 2px solid var(--gold);
+            transition: all 0.4s ease;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--deep-green);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: var(--olive);
+            margin-top: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 2px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border-top: 4px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--deep-green);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+        }
+
+        /* Specialties Section */
+        .specialties {
+            background: var(--deep-green);
+            padding: 8rem 5%;
+            color: var(--cream);
+        }
+
+        .specialties-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .specialties h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .specialties-intro {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .specialty-item {
+            background: rgba(245, 241, 232, 0.05);
+            padding: 3rem;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .specialty-item:hover {
+            background: rgba(245, 241, 232, 0.1);
+            border-color: var(--gold);
+            transform: scale(1.03);
+        }
+
+        .specialty-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .specialty-item ul {
+            list-style: none;
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .specialty-item li::before {
+            content: '◆';
+            color: var(--gold);
+            margin-right: 1rem;
+        }
+
+        /* Machines Section */
+        .machines {
+            padding: 8rem 5%;
+            background: var(--cream);
+        }
+
+        .machines-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .machines h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            text-align: center;
+            color: var(--deep-green);
+            margin-bottom: 2rem;
+        }
+
+        .machines-intro {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--olive);
+            max-width: 900px;
+            margin: 0 auto 5rem;
+        }
+
+        .machines-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+        }
+
+        .machine-card {
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .machine-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .machine-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .machine-card:hover .machine-image {
+            transform: scale(1.05);
+        }
+
+        .machine-info {
+            padding: 2.5rem;
+        }
+
+        .machine-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--deep-green);
+            margin-bottom: 1rem;
+        }
+
+        .machine-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, var(--olive) 0%, var(--deep-green) 100%);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+        }
+
+        .contact p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            font-size: 1.2rem;
+        }
+
+        .contact-item strong {
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--cream);
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        footer p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.2rem;
+                letter-spacing: 4px;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid,
+            .specialties-grid,
+            .machines-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-details {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">THE <span>VOGUE</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#specialties">Specialties</a></li>
+                <li><a href="#machines">Equipment</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>THE VOGUE</h1>
+            <div class="tagline">Trending Styles</div>
+            <p>Where Nigerian elegance meets contemporary sophistication. Premium fashion design, bespoke tailoring, and artisan craftsmanship for the distinguished.</p>
+            <a href="#contact" class="cta-button">Start Your Design</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Comprehensive fashion solutions tailored to your unique style</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">✂️</div>
+                <h3>Bespoke Tailoring</h3>
+                <p>Custom-fitted garments crafted with precision and attention to every detail. From traditional Nigerian attire to contemporary designs that celebrate your individuality.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">👗</div>
+                <h3>Trending Styles</h3>
+                <p>Stay ahead with our curated collection of the latest fashion trends. We blend international influences with authentic Nigerian aesthetics for stunning results.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Fashion Consultation</h3>
+                <p>Expert styling advice to help you discover your signature look. Our designers work with you to create wardrobes that reflect your personality and lifestyle.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section class="specialties" id="specialties">
+        <div class="specialties-content">
+            <h2>Our Specialties</h2>
+            <p class="specialties-intro">At The Vogue, we pride ourselves on offering specialized services that elevate your fashion experience with state-of-the-art technology and artisan craftsmanship.</p>
+
+            <div class="specialties-grid">
+                <div class="specialty-item">
+                    <h3>Custom Monograms</h3>
+                    <ul>
+                        <li>Personalized embroidered monograms on any garment</li>
+                        <li>Premium thread selection in various colors and styles</li>
+                        <li>Logo reproduction for corporate wear</li>
+                        <li>Name personalization for special occasions</li>
+                        <li>Intricate design work with precision machinery</li>
+                        <li>Traditional and contemporary monogram styles</li>
+                    </ul>
+                </div>
+
+                <div class="specialty-item">
+                    <h3>Professional Prints</h3>
+                    <ul>
+                        <li>High-quality fabric printing services</li>
+                        <li>Custom pattern design and application</li>
+                        <li>Digital and screen printing options</li>
+                        <li>Vibrant, long-lasting color application</li>
+                        <li>Ankara and traditional print modernization</li>
+                        <li>Bulk printing for events and businesses</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Machines Section -->
+    <section class="machines" id="machines">
+        <div class="machines-content">
+            <h2>State-of-the-Art Equipment</h2>
+            <p class="machines-intro">We invest in the finest machinery to ensure every stitch, print, and monogram meets the highest standards of quality and precision.</p>
+
+            <div class="machines-gallery">
+                <div class="machine-card">
+                    <img src="https://images.unsplash.com/photo-1591361990198-c5501f6f6ef3?w=800&q=80" alt="Industrial Sewing Machines" class="machine-image">
+                    <div class="machine-info">
+                        <h3>Industrial Sewing Machines</h3>
+                        <p>Our workshop features professional-grade industrial sewing machines capable of handling everything from delicate silks to heavy-duty fabrics. These powerful machines ensure perfect stitching, durability, and finish on every garment we create.</p>
+                    </div>
+                </div>
+
+                <div class="machine-card">
+                    <img src="https://images.unsplash.com/photo-1588783949804-b0c9e6c7e50a?w=800&q=80" alt="Yinghe Monogram Machine" class="machine-image">
+                    <div class="machine-info">
+                        <h3>Yinghe Monogram Machine</h3>
+                        <p>Our specialized Yinghe monogram embroidery machine delivers exceptional precision for personalized designs. With advanced computerized controls, we create intricate monograms, logos, and custom embroidery that add a distinctive touch to your garments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Let's Create Together</h2>
+        <p>Ready to elevate your wardrobe? Visit our design studio or reach out to discuss your fashion vision. We're here to bring your style dreams to life.</p>
+        
+        <div class="contact-details">
+            <div class="contact-item">
+                <strong>Location</strong>
+                Jos, Plateau State, Nigeria
+            </div>
+            <div class="contact-item">
+                <strong>Email</strong>
+                info@thevogue.ng
+            </div>
+            <div class="contact-item">
+                <strong>Phone</strong>
+                +234 XXX XXX XXXX
+            </div>
+        </div>
+
+        <a href="#home" class="cta-button" style="margin-top: 3rem;">Get Started</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 The Vogue - Premium Nigerian Fashion Design. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
